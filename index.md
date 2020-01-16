@@ -1,37 +1,27 @@
-## Welcome to GitHub Pages
+## Isil D. Yakut Kilic
 
-You can use the [editor on GitHub](https://github.com/doayakut/doayakut.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+PhD Candidate, Information Systems
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+University of Maryland, Baltimore County
 
-### Markdown
+email: yakut1 at umbc dot edu
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+[dblp](https://dblp.org/pers/hd/k/Kili=ccedil=:Isil_Doga_Yakut) - 
+[linkedin](https://www.linkedin.com/in/doayakut/)
 
-```markdown
-Syntax highlighted code block
+I'm a PhD candidate at Department of Information Systems at University of Maryland, Baltimore County advised by Shimei Pan. My research interest is developing predictive systems for predictive user behavior analysis, including topics such as natural language processing, psycholinguistics, application of neural networks. 
 
-# Header 1
-## Header 2
-### Header 3
+#### Publications
 
-- Bulleted
-- List
+- Jianwei Lai, Dongsong Zhang, Sen Wang, Isil Doga Yakut Kiliç, Lina Zhou: ThumbStroke: A Virtual Keyboard in Support of Sight-Free and One-Handed Text Entry on Touchscreen Mobile Devices. ACM Trans. Management Inf. Syst. 10(3): 11:1-11:19 (2019)
+- Jianwei Lai, Dongsong Zhang, Sen Wang, Isil Yakut Kilic, Lina Zhou: A Thumb Stroke-Based Virtual Keyboard for Sight-Free Text Entry on Touch-Screen Mobile Phones. HICSS 2018: 1-10
+- Isil Doga Yakut Kiliç, Shimei Pan: Automated Domain Bias Correction and Its Application in Text-Based Personality Analysis. International Journal on Artificial Intelligence Tools 26(5): 1760023:1-1760023:25 (2017)
+- Dongsong Zhang, Lina Zhou, Judith Odili Uchidiuno, Isil Yakut Kilic: Personalized Assistive Web for Improving Mobile Web Browsing and Accessibility for Visually Impaired Users. TACCESS 10(2): 6:1-6:22 (2017)
+- Dongsong Zhang, Lina Zhou, Juan Luo Kehoe, Isil Yakut Kilic: What Online Reviewer Behaviors Really Matter? Effects of Verbal and Nonverbal Behaviors on Detection of Fake Online Reviews. J. of Management Information Systems 33(2): 456-481 (2016)
+- Isil Doga Yakut Kiliç, Shimei Pan: Cross-Domain Error Correction in Personality Prediction. ECAI 2016: 1742-1743
+- Isil Doga Yakut Kiliç, Shimei Pan: Analyzing and Preventing Bias in Text-Based Personal Trait Prediction Algorithms. ICTAI 2016: 1060-1067
+- Dongsong Zhang, Anil Jangam, Lina Zhou, Isil Yakut: Context-Aware Multimedia Content Adaptation for Mobile Web. IJNDC 3(1): 1-10 (2015)
+- Jianwei Lai, Judith Odili, Isil Yakut Kilic, Dongsong Zhang, Lina Zhou: PRECMAS: A Personalized, Cloud-based Integrative Approach to Mobile Web Adaptation. AMCIS 2015
+- Dongsong Zhang, Anil Jangam, Lina Zhou, Isil Yakut: User-centered, device-aware multimedia content adaptation for mobile web. ICIS 2014: 275-280
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/doayakut/doayakut.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
