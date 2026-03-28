@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classics Book List — 6th & 7th Grade</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #faf8f3;
+    --ink: #1a1208;
+    --brown: #5c3d1e;
+    --gold: #b8860b;
+    --gold-light: #d4a843;
+    --rust: #8b3a1e;
+    --sage: #4a6741;
+    --muted: #7a6a58;
+    --divider: #d6cdb8;
+  }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background-color: var(--ink);
+    color: var(--cream);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(184,134,11,0.04) 30px,
+      rgba(184,134,11,0.04) 31px
+    );
+  }
+
+  .header-ornament {
+    font-size: 1.1rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  header h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: #c8bfad;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  .header-rule {
+    width: 80px;
+    height: 2px;
+    background: var(--gold);
+    margin: 22px auto 0;
+  }
+
+  /* INTRO */
+  .intro {
+    max-width: 720px;
+    margin: 50px auto 20px;
+    padding: 0 24px;
+    text-align: center;
+    color: var(--muted);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.9;
+  }
+
+  /* FILTER NAV */
+  .filter-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 28px 24px 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .filter-btn {
+    background: none;
+    border: 1.5px solid var(--divider);
+    color: var(--muted);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 0;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background-color: var(--ink);
+    border-color: var(--ink);
+    color: var(--cream);
+  }
+
+  /* COUNTER */
+  .counter {
+    text-align: center;
+    margin: 32px 0 0;
+    font-size: 0.82rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* BOOK GRID */
+  .grid-wrapper {
+    max-width: 1100px;
+    margin: 28px auto 60px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1px;
+    background-color: var(--divider);
+    border: 1px solid var(--divider);
+  }
+
+  .book-card {
+    background: var(--warm-white);
+    padding: 28px 28px 24px;
+    position: relative;
+    transition: background 0.18s ease;
+    cursor: default;
+  }
+
+  .book-card:hover {
+    background: #fff;
+    z-index: 2;
+  }
+
+  .book-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .book-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .book-author {
+    font-size: 0.85rem;
+    color: var(--rust);
+    font-style: italic;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .book-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .book-tags {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border: 1px solid;
+  }
+
+  .tag-adventure    { border-color: #b08060; color: #8b5e3c; background: #f7f0e6; }
+  .tag-mystery      { border-color: #7a6a8a; color: #5c4a70; background: #f2eef7; }
+  .tag-fantasy      { border-color: #4a7a6a; color: #2e5c50; background: #e9f5f1; }
+  .tag-historical   { border-color: #8a6a3a; color: #6b4e20; background: #f5eddf; }
+  .tag-coming-of-age{ border-color: #7a5a5a; color: #5c3838; background: #f5ebe8; }
+  .tag-nature       { border-color: #4a6741; color: #2e4e28; background: #eaf2e8; }
+  .tag-social       { border-color: #6a7a8a; color: #445060; background: #e8ecf2; }
+  .tag-humor        { border-color: #8a7a3a; color: #6b5c1e; background: #f5f0df; }
+  .tag-mythology    { border-color: #8a4a4a; color: #6b2e2e; background: #f5e8e8; }
+  .tag-science      { border-color: #3a6a7a; color: #1e4e5c; background: #e5eff2; }
+
+  /* HIDDEN */
+  .book-card.hidden {
+    display: none;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 24px 60px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-style: italic;
+    border-top: 1px solid var(--divider);
+  }
+
+  footer strong {
+    color: var(--ink);
+    font-style: normal;
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 40px 20px 36px; }
+    .grid-wrapper { grid-template-columns: 1fr; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .book-card { animation: fadeIn 0.35s ease both; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-ornament">A Curated Reading List</div>
+  <h1>The Young Reader's<br><em>Library of Classics</em></h1>
+  <div class="subtitle">6th &amp; 7th Grade &nbsp;·&nbsp; 50+ Essential Titles</div>
+  <div class="header-rule"></div>
+</header>
+
+<p class="intro">
+  These timeless works have shaped generations of readers. Selected for their literary merit, 
+  compelling storytelling, and age-appropriate themes — each one an invitation into great writing.
+</p>
+
+<div class="filter-nav">
+  <button class="filter-btn active" onclick="filter('all', this)">All Books</button>
+  <button class="filter-btn" onclick="filter('adventure', this)">Adventure</button>
+  <button class="filter-btn" onclick="filter('mystery', this)">Mystery</button>
+  <button class="filter-btn" onclick="filter('fantasy', this)">Fantasy</button>
+  <button class="filter-btn" onclick="filter('historical', this)">Historical</button>
+  <button class="filter-btn" onclick="filter('coming-of-age', this)">Coming of Age</button>
+  <button class="filter-btn" onclick="filter('nature', this)">Nature</button>
+  <button class="filter-btn" onclick="filter('mythology', this)">Mythology</button>
+  <button class="filter-btn" onclick="filter('humor', this)">Humor</button>
+  <button class="filter-btn" onclick="filter('social', this)">Social Themes</button>
+</div>
+
+<p class="counter" id="counter">Showing all 55 books</p>
+
+<div class="grid-wrapper" id="bookGrid">
+</div>
+
+<footer>
+  <strong>A note for parents:</strong> Reading levels vary — some titles may benefit from discussion together. 
+  Books marked <em>Historical</em> often touch on difficult periods; they're rich opportunities for conversation.
+</footer>
+
+<script>
+const books = [
+  { title: "The Hobbit", author: "J.R.R. Tolkien", tags: ["fantasy","adventure"], desc: "Bilbo Baggins is swept into an epic quest with dwarves and a wizard. A masterclass in world-building and the hero's journey." },
+  { title: "A Wrinkle in Time", author: "Madeleine L'Engle", tags: ["fantasy","science","adventure"], desc: "Meg Murry travels across dimensions to rescue her father. Blends science, faith, and courage in unforgettable ways." },
+  { title: "The Call of the Wild", author: "Jack London", tags: ["adventure","nature"], desc: "A domesticated dog is thrust into the Alaskan wilderness. London's prose captures survival and instinct with raw beauty." },
+  { title: "White Fang", author: "Jack London", tags: ["adventure","nature"], desc: "The companion to Call of the Wild — a wolf-dog's journey from wild to tame. Stunning descriptions of the Yukon." },
+  { title: "Little Women", author: "Louisa May Alcott", tags: ["coming-of-age","historical","social"], desc: "The March sisters navigate love, loss, and ambition in Civil War–era America. Warm, wise, and endlessly quotable." },
+  { title: "The Secret Garden", author: "Frances Hodgson Burnett", tags: ["coming-of-age","nature"], desc: "A spoiled orphan discovers a hidden garden and herself. One of the most beautifully written children's novels in English." },
+  { title: "Tom Sawyer", author: "Mark Twain", tags: ["adventure","humor","coming-of-age"], desc: "The original American boy's adventure, full of wit and mischief along the Mississippi. Twain's voice is incomparable." },
+  { title: "The Adventures of Huckleberry Finn", author: "Mark Twain", tags: ["adventure","social","historical"], desc: "Huck and Jim float down the Mississippi in a story about freedom and conscience. A cornerstone of American literature." },
+  { title: "Treasure Island", author: "Robert Louis Stevenson", tags: ["adventure","mystery"], desc: "Pirates, buried gold, and the treacherous Long John Silver. The blueprint for every pirate story that followed." },
+  { title: "Robinson Crusoe", author: "Daniel Defoe", tags: ["adventure","nature"], desc: "The original survival story — a shipwrecked man builds a life alone on a tropical island. Gripping and inventive." },
+  { title: "Swiss Family Robinson", author: "Johann David Wyss", tags: ["adventure","nature"], desc: "A family shipwrecked on a tropical island uses ingenuity to thrive. Full of practical wonder and family spirit." },
+  { title: "Twenty Thousand Leagues Under the Sea", author: "Jules Verne", tags: ["adventure","science"], desc: "Captain Nemo's submarine explores the ocean's depths. Verne's imagination reads as fresh today as in 1870." },
+  { title: "Around the World in Eighty Days", author: "Jules Verne", tags: ["adventure","humor"], desc: "Phileas Fogg's globe-trotting wager against time. Elegant, witty, and propulsively plotted." },
+  { title: "Journey to the Center of the Earth", author: "Jules Verne", tags: ["adventure","science"], desc: "Explorers descend into a volcano and discover a prehistoric world below. Verne at his most thrillingly imaginative." },
+  { title: "The Time Machine", author: "H.G. Wells", tags: ["science","adventure"], desc: "A Victorian inventor travels to the far future and finds humanity transformed. A slim, haunting masterpiece." },
+  { title: "The War of the Worlds", author: "H.G. Wells", tags: ["science","adventure"], desc: "Martians invade England in this gripping early science fiction classic that invented the alien invasion genre." },
+  { title: "The Jungle Book", author: "Rudyard Kipling", tags: ["adventure","nature","fantasy"], desc: "Mowgli's life among wolves, bears, and tigers. Kipling's animal characters are richly drawn and the language is lush." },
+  { title: "Kim", author: "Rudyard Kipling", tags: ["adventure","historical"], desc: "An orphan boy navigates colonial India as a spy. Rich with color, culture, and Kipling's extraordinary descriptive power." },
+  { title: "Black Beauty", author: "Anna Sewell", tags: ["social","coming-of-age","nature"], desc: "A horse narrates its life through kindness and cruelty. A groundbreaking novel that changed how people treated animals." },
+  { title: "The Wind in the Willows", author: "Kenneth Grahame", tags: ["fantasy","nature","humor"], desc: "Mole, Rat, Badger, and Toad in the English countryside. The prose is enchanting — every sentence a small pleasure." },
+  { title: "Anne of Green Gables", author: "L.M. Montgomery", tags: ["coming-of-age","humor","social"], desc: "Anne Shirley's imagination and spirit light up Prince Edward Island. Montgomery's writing sparkles with warmth." },
+  { title: "Rebecca of Sunnybrook Farm", author: "Kate Douglas Wiggin", tags: ["coming-of-age","humor"], desc: "A vivacious girl from a poor family wins over a new community. Full of charm, humor, and beautifully observed characters." },
+  { title: "Pollyanna", author: "Eleanor H. Porter", tags: ["coming-of-age","social"], desc: "An orphan's relentless optimism transforms an entire town. More nuanced than its reputation suggests." },
+  { title: "The Prince and the Pauper", author: "Mark Twain", tags: ["historical","adventure","social"], desc: "A Tudor prince and a pauper swap lives, each learning what the other endures. Twain's social satire at its sharpest." },
+  { title: "A Connecticut Yankee in King Arthur's Court", author: "Mark Twain", tags: ["fantasy","humor","historical"], desc: "A 19th-century engineer wakes up in medieval England. Twain's comedy has serious things to say about power and progress." },
+  { title: "Kidnapped", author: "Robert Louis Stevenson", tags: ["adventure","historical"], desc: "David Balfour is kidnapped and entangled in Scottish rebellion. Fast-paced and atmospheric with superb characterization." },
+  { title: "The Count of Monte Cristo (abridged)", author: "Alexandre Dumas", tags: ["adventure","mystery","historical"], desc: "A wrongly imprisoned man engineers an elaborate revenge. One of the most satisfying plots ever constructed." },
+  { title: "The Three Musketeers", author: "Alexandre Dumas", tags: ["adventure","historical"], desc: "D'Artagnan joins the Musketeers in swashbuckling intrigue. Dumas's plotting is relentless and his characters irresistible." },
+  { title: "Oliver Twist", author: "Charles Dickens", tags: ["social","historical","coming-of-age"], desc: "An orphan boy navigates Victorian London's criminal underworld. Dickens's social conscience and vivid characterization at their finest." },
+  { title: "A Christmas Carol", author: "Charles Dickens", tags: ["fantasy","social","historical"], desc: "Scrooge's transformation through three ghostly visits. Dickens's prose is rich and moral without being preachy." },
+  { title: "Great Expectations (abridged)", author: "Charles Dickens", tags: ["coming-of-age","social","historical"], desc: "Pip's journey from poverty to gentleman and the lessons learned. One of the great first-person narratives in English." },
+  { title: "Jane Eyre (abridged)", author: "Charlotte Brontë", tags: ["coming-of-age","mystery","historical"], desc: "A plain governess with fierce inner strength navigates a Gothic mystery. Brontë's voice is passionate and utterly compelling." },
+  { title: "The Red Badge of Courage", author: "Stephen Crane", tags: ["historical","coming-of-age"], desc: "A young Civil War soldier confronts fear and cowardice. Crane's writing is startlingly modern — vivid, immediate, honest." },
+  { title: "My Ántonia", author: "Willa Cather", tags: ["historical","coming-of-age","nature"], desc: "Immigrants on the Nebraska frontier, told with deep affection. Cather's prose is spare and luminous." },
+  { title: "O Pioneers!", author: "Willa Cather", tags: ["historical","nature","coming-of-age"], desc: "Alexandra Bergson tames the wild Nebraska prairie. Cather's elemental writing captures land and human will beautifully." },
+  { title: "The Yearling", author: "Marjorie Kinnan Rawlings", tags: ["coming-of-age","nature"], desc: "A boy in the Florida scrubland raises an orphaned fawn. Profoundly moving, with gorgeous natural description." },
+  { title: "Where the Red Fern Grows", author: "Wilson Rawls", tags: ["coming-of-age","nature","adventure"], desc: "A boy in the Ozarks trains his two beloved coonhounds. Deeply emotional — few books earn their tears more honestly." },
+  { title: "Island of the Blue Dolphins", author: "Scott O'Dell", tags: ["adventure","nature","historical"], desc: "A Native American girl survives alone on a Pacific island for 18 years. Spare, beautiful, and deeply human." },
+  { title: "The Witch of Blackbird Pond", author: "Elizabeth George Speare", tags: ["historical","mystery","coming-of-age"], desc: "A Caribbean-raised girl clashes with Puritan Connecticut. Winner of the Newbery Medal; excellent historical fiction." },
+  { title: "Johnny Tremain", author: "Esther Forbes", tags: ["historical","adventure","coming-of-age"], desc: "A silversmith's apprentice becomes caught up in the American Revolution. Vivid period detail and a compelling protagonist." },
+  { title: "Carry On, Mr. Bowditch", author: "Jean Lee Latham", tags: ["historical","adventure"], desc: "The true story of Nathaniel Bowditch, self-taught mathematical genius and navigator. Inspiring and beautifully written." },
+  { title: "The Door in the Wall", author: "Marguerite de Angeli", tags: ["historical","coming-of-age"], desc: "A crippled boy's courage in medieval England. Richly illustrated and deeply hopeful — a Newbery Medal classic." },
+  { title: "Adam of the Road", author: "Elizabeth Janet Gray", tags: ["historical","adventure"], desc: "A minstrel's son searches for his father and his dog in 13th-century England. Vivid and lovingly researched." },
+  { title: "The Bronze Bow", author: "Elizabeth George Speare", tags: ["historical","coming-of-age","adventure"], desc: "A young Jew in Roman-occupied Palestine learns the cost of hatred. Gripping storytelling with real historical weight." },
+  { title: "The Story of My Life", author: "Helen Keller", tags: ["coming-of-age","social"], desc: "Keller's own account of her extraordinary life. Her prose — learned despite being blind and deaf — is remarkable." },
+  { title: "Mythology", author: "Edith Hamilton", tags: ["mythology"], desc: "The essential guide to Greek, Roman, and Norse myths. Hamilton's elegant retellings make the gods feel vivid and real." },
+  { title: "D'Aulaires' Book of Greek Myths", author: "Ingri & Edgar Parin d'Aulaire", tags: ["mythology"], desc: "Beautifully illustrated retellings of the Greek myths. The standard introduction for young readers — gorgeous and authoritative." },
+  { title: "Tales from Shakespeare", author: "Charles & Mary Lamb", tags: ["historical","fantasy","humor"], desc: "Shakespeare's plays retold as prose stories. The ideal gateway to Shakespeare before reading the originals." },
+  { title: "Gulliver's Travels", author: "Jonathan Swift", tags: ["adventure","social","humor"], desc: "A surgeon's fantastical voyages to strange lands — a biting satire disguised as a children's adventure. Endlessly witty." },
+  { title: "The Merry Adventures of Robin Hood", author: "Howard Pyle", tags: ["adventure","historical","humor"], desc: "Pyle's classic retelling of the Robin Hood legends. His prose style is unique and beautiful — medieval without being stiff." },
+  { title: "King Arthur and His Knights of the Round Table", author: "Roger Lancelyn Green", tags: ["mythology","adventure","fantasy"], desc: "The complete Arthurian legends in one authoritative, beautifully written volume. Essential reading." },
+  { title: "The Iliad (retold)", author: "Homer / Roger Lancelyn Green", tags: ["mythology","adventure","historical"], desc: "The Trojan War in an accessible retelling. Green preserves the grandeur of Homer while making it vivid for young readers." },
+  { title: "The Odyssey (retold)", author: "Homer / Gillian Cross", tags: ["mythology","adventure","fantasy"], desc: "Odysseus's ten-year journey home from Troy. One of the greatest adventure stories ever told, in a superb adaptation." },
+  { title: "Swiss Family Robinson", author: "Johann David Wyss", tags: ["adventure","nature"], desc: "A family shipwrecked on a tropical island uses ingenuity to thrive. Full of practical wonder and family spirit." },
+  { title: "Just So Stories", author: "Rudyard Kipling", tags: ["fantasy","humor","mythology"], desc: "How the elephant got its trunk; how the camel got its hump. Kipling's playful language is a delight to read aloud." },
+  { title: "The Scarlet Pimpernel", author: "Baroness Orczy", tags: ["adventure","historical","mystery"], desc: "A foppish English aristocrat secretly rescues French nobles from the guillotine. Thrilling, witty, and wonderfully plotted." },
+];
+
+// Deduplicate (Swiss Family appeared twice in source)
+const seen = new Set();
+const uniqueBooks = books.filter(b => {
+  if (seen.has(b.title)) return false;
+  seen.add(b.title);
+  return true;
+});
+
+function renderBooks(list) {
+  const grid = document.getElementById('bookGrid');
+  grid.innerHTML = '';
+  list.forEach((book, i) => {
+    const tagsHTML = book.tags.map(t =>
+      `<span class="tag tag-${t}">${t.replace('-',' ')}</span>`
+    ).join('');
+    const card = document.createElement('div');
+    card.className = 'book-card';
+    card.style.animationDelay = `${Math.min(i * 0.04, 0.8)}s`;
+    card.innerHTML = `
+      <div class="book-number">№ ${String(i+1).padStart(2,'0')}</div>
+      <div class="book-title">${book.title}</div>
+      <div class="book-author">${book.author}</div>
+      <div class="book-desc">${book.desc}</div>
+      <div class="book-tags">${tagsHTML}</div>
+    `;
+    grid.appendChild(card);
+  });
+  document.getElementById('counter').textContent =
+    `Showing ${list.length} of ${uniqueBooks.length} books`;
+}
+
+function filter(tag, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const filtered = tag === 'all' ? uniqueBooks : uniqueBooks.filter(b => b.tags.includes(tag));
+  renderBooks(filtered);
+}
+
+renderBooks(uniqueBooks);
+</script>
+</body>
+</html>
